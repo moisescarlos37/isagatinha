@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de isagatinha</title>
+   <link rel="shortcut icon" href="android-chrome-192x192.png" type="image/x-icon">
+    <style>
+
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ff5512;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .calculadora {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .calculadora h1 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .campo-input {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-align: right;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .botoes {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .botoes input {
+            padding: 20px;
+            font-size: 18px;
+            border: none;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .botoes input:hover {
+            background-color: #d0d0d0;
+        }
+        .botoes input:active {
+            background-color: #ccc;
+        }
+        .botao-igual {
+            background-color: #5c925e;
+            color: white;
+        }
+        .botao-igual:hover {
+            background-color: #45a049;
+        }
+        .botao-clear {
+            background-color: #f44336;
+            color: white;
+        }
+        .botao-clear:hover {
+            background-color: #e53935;
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculadora">
+    <h1>Calculadora de Isa amor da vida de moises</h1>
+    <input type="text" id="resultado" class="campo-input" disabled><br>
+    
+    <div class="botoes">
+        <input type="button" value="7" onclick="adicionarValor('7')">
+        <input type="button" value="8" onclick="adicionarValor('8')">
+        <input type="button" value="9" onclick="adicionarValor('9')">
+        <input type="button" value="/" onclick="adicionarValor('/')">
+        <input type="button" value="4" onclick="adicionarValor('4')">
+        <input type="button" value="5" onclick="adicionarValor('5')">
+        <input type="button" value="6" onclick="adicionarValor('6')">
+        <input type="button" value="x" onclick="adicionarValor('*')">
+        <input type="button" value="1" onclick="adicionarValor('1')">
+        <input type="button" value="2" onclick="adicionarValor('2')">
+        <input type="button" value="3" onclick="adicionarValor('3')">
+        <input type="button" value="-" onclick="adicionarValor('-')">
+        <input type="button" value="0" onclick="adicionarValor('0')">
+        <input type="button" value="." onclick="adicionarValor('.')">
+        <input type="button" value="+" onclick="adicionarValor('+')">
+        <input type="button" value="=" class="botao-igual" onclick="calcular()">
+        <input type="button" value="c" class="botao-clear" onclick="limpar()">
+    </div>
+</div>
+<script>
+
+    function adicionarValor(valor) {
+        document.getElementById('resultado').value += valor;
+    }
+    function limpar() {
+        document.getElementById('resultado').value = '';
+    }
+    function calcular() {
+        let expressao = document.getElementById('resultado').value;
+        
+        try {
+            let resultado = eval(expressao);
+            document.getElementById('resultado').value = resultado;
+        } catch (error) {
+            document.getElementById('resultado').value = 'Erro';
+        }
+    }
+</script>
+
+</body>
+</html>
